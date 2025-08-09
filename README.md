@@ -2,6 +2,8 @@
 
 A robust, scalable calendar booking system built with FastAPI, featuring clean architecture, design patterns, and comprehensive testing.
 
+## Assumptions
+
 ## Features
 
 - **User Availability Management** - Set and manage working hours
