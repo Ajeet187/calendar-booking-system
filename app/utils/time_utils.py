@@ -37,13 +37,6 @@ class TimeUtils:
             return False
     
     @staticmethod
-    def is_business_hours(time_obj: time) -> bool:
-        """Check if time is within business hours (9 AM - 5 PM)"""
-        business_start = time(9, 0)
-        business_end = time(17, 0)
-        return business_start <= time_obj <= business_end
-    
-    @staticmethod
     def get_duration_between(start: time, end: time) -> timedelta:
         """Get duration between two times"""
         start_dt = datetime.combine(date.today(), start)

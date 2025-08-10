@@ -8,8 +8,8 @@ A robust, scalable calendar booking system built with FastAPI, featuring clean a
 3. Slot Start Format – Slots start strictly at the hour mark in 24-hour HH:00 format (e.g., 09:00, 14:00).
 4. Single Appointment per Slot – Only one appointment can be booked in a given slot for a given calendar owner.
 5. Default Timezone – All times are considered in a single default timezone unless explicitly extended with timezone support.
-6. First Come, First Served – In case of concurrent booking requests for the same slot, the request that acquires the lock first succeeds; the other fails with a   conflict error.
-7.Advance Booking Limit – Appointments can only be booked up to MAX_ADVANCE_BOOKING_DAYS(365) from the current date.
+6. First Come, First Served – In case of concurrent booking requests for the same slot, the request that acquires the lock first succeeds; the other fails with a conflict error.
+7.Advance Booking Limit – Appointments can only be booked up to MAX_ADVANCE_BOOKING_DAYS(365 days) from the current date.
 8.Invitee Data Validity – Invitee name and email are assumed to be valid at booking time (no extra verification beyond input validation).
 
 ## Features
@@ -73,8 +73,8 @@ assig/
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd assig
+   git clone https://github.com/Ajeet187/calendar-booking-system.git
+   cd calendar-booking-system
    ```
 
 2. **Create a virtual environment**
@@ -93,24 +93,15 @@ assig/
    uvicorn app.main:app --reload
    ```
 
-
-
 The API will be available at `http://localhost:8000`
 
 
-
-
-## Docker Setup
-
-### Create Docker Image
+## Quick Run
 ```bash
-docker build -t booking-api .
+python quick_start.py
 ```
 
-### Run Docker Container
-```bash
-docker run -p 8000:8000 booking-api
-```
+
 
 ## API Documentation
 
@@ -242,3 +233,17 @@ The application uses custom exceptions for better error handling:
 - `NotFoundException` - Resource not found errors (404)
 - `ConflictException` - Conflict errors like double booking (409)
 
+
+
+
+## Docker Setup
+
+### Create Docker Image
+```bash
+docker build -t booking-api .
+```
+
+### Run Docker Container
+```bash
+docker run -p 8000:8000 booking-api
+```
