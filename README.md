@@ -3,6 +3,14 @@
 A robust, scalable calendar booking system built with FastAPI, featuring clean architecture, design patterns, and comprehensive testing.
 
 ## Assumptions
+1. Fixed Slot Duration – Each availability slot is 60 minutes long
+2. Uniform Weekday Rules – All days of the week, including Saturdays and Sundays, follow the same availability rules (no weekends or holidays by default).
+3. Slot Start Format – Slots start strictly at the hour mark in 24-hour HH:00 format (e.g., 09:00, 14:00).
+4. Single Appointment per Slot – Only one appointment can be booked in a given slot for a given calendar owner.
+5. Default Timezone – All times are considered in a single default timezone unless explicitly extended with timezone support.
+6. First Come, First Served – In case of concurrent booking requests for the same slot, the request that acquires the lock first succeeds; the other fails with a   conflict error.
+7.Advance Booking Limit – Appointments can only be booked up to MAX_ADVANCE_BOOKING_DAYS(365) from the current date.
+8.Invitee Data Validity – Invitee name and email are assumed to be valid at booking time (no extra verification beyond input validation).
 
 ## Features
 
@@ -127,7 +135,7 @@ Content-Type: application/json
 
 #### Get Available Slots
 ```http
-GET /slots?calendar_owner_id=user123&for_date=2024-01-15
+GET /slots?calendar_owner_id=user123&for_date=2025-10-25
 ```
 
 #### Book Appointment
@@ -139,7 +147,7 @@ Content-Type: application/json
     "calendar_owner_id": "user123",
     "invitee_name": "Ajeet Singh",
     "invitee_email": "ajeetsing187@gmail.com",
-    "date": "2025-10-15",
+    "date": "2025-10-25",
     "slot_start_time": "10:00"
 }
 ```
