@@ -35,7 +35,7 @@ This project follows clean architecture principles with the following design pat
 ### Project Structure
 
 ```
-assig/
+calendar-booking-system/
 ├── app/
 │   ├── core/
 │   │   ├── config.py          # Configuration management
